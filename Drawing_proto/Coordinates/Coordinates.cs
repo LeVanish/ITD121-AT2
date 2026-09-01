@@ -7,22 +7,22 @@ using System.Text;
 namespace Drawing_proto
 {
     /// <summary>
-    /// Class to represent a point int the canvas.
+    ///     Class to represent a point int the canvas.
     /// </summary>
     public class Coordinates : ICoordinates
     {
         /// <summary>
-        /// The horizontal position of the point.
+        ///     The horizontal position of the point.
         /// </summary>
         public int X { get; set; }
 
         /// <summary>
-        /// The vertical position of the point.
+        ///     The vertical position of the point.
         /// </summary>
         public int Y { get; set; }
 
         /// <summary>
-        /// Set the initial location of the point.
+        ///     Set the initial location of the point.
         /// </summary>
         /// <param name="x">The initial horizontal location of the point.</param>
         /// <param name="y">The initial vertical location of the point.</param>
@@ -33,7 +33,7 @@ namespace Drawing_proto
         }
 
         /// <summary>
-        /// Gets the coordinates as a string.
+        ///     Gets the coordinates as a string.
         /// </summary>
         /// <returns>Returns a string containing the coordinates.</returns>
         public override string ToString()

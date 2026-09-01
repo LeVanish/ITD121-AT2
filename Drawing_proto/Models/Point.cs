@@ -9,12 +9,12 @@ namespace Drawing_proto
     public class Point : Shape
     {
         /// <summary>
-        /// Get the symbol used to display the point.
+        ///     Get the symbol used to display the point.
         /// </summary>
         public char Symbol { get; }
 
         /// <summary>
-        /// Initialis the Point.
+        ///     Initialis the Point.
         /// </summary>
         /// <param name="position">The position of the point.</param>
         /// <param name="symbol">The symbol used to display the point.</param>

@@ -13,13 +13,13 @@ namespace Drawing_proto
         private char[,] cells;
 
         /// <summary>
-        /// Get the width of the canvas.
+        ///     Get the width of the canvas.
         /// </summary>
         /// <value>
-        /// The (strictly positive) width of the canvas.
+        ///     The (strictly positive) width of the canvas.
         /// </value>
         /// <exception cref="ArgumentException">
-        /// ArgumentException is thrown if vlaue is not greater than zero.
+        ///     ArgumentException is thrown if vlaue is not greater than zero.
         /// </exception>
         public int Width
         {
@@ -39,13 +39,13 @@ namespace Drawing_proto
         }
 
         /// <summary>
-        /// Get the height of the canvas.
+        ///     Get the height of the canvas.
         /// </summary>
         /// <value>
-        /// The (strictly positive) width of the canvas.
+        ///     The (strictly positive) width of the canvas.
         /// </value>
         /// <exception cref="ArgumentException">
-        /// ArgumentException is thrown if vlaue is not greater than zero.
+        ///     ArgumentException is thrown if vlaue is not greater than zero.
         /// </exception>
         public int Height
         {
@@ -60,7 +60,7 @@ namespace Drawing_proto
         }
 
         /// <summary>
-        /// Initialise the canvas.
+        ///     Initialise the canvas.
         /// </summary>
         /// <param name="width">The (strictly positive) width of the canvas.</param>
         /// <param name="height">The (strictly positive) height of the canvas.</param>
@@ -73,7 +73,7 @@ namespace Drawing_proto
         }
 
         /// <summary>
-        /// Erase contents of canvas, replacing with spaces.
+        ///     Erase contents of canvas, replacing with spaces.
         /// </summary>
         public void Clear()
         {
@@ -87,7 +87,7 @@ namespace Drawing_proto
         }
 
         /// <summary>
-        /// Render the canvas to the standard output stream.
+        ///     Render the canvas to the standard output stream.
         /// </summary>
         public void Show()
         {
@@ -113,18 +113,18 @@ namespace Drawing_proto
         }
 
         /// <summary>
-        /// Sets the contents of a cell to a given value.
-        /// If the row or column is out of bounds, then the canvas is not affected.
-        /// Apart from the affected cell, all other cells in the canvas are unchanged.
+        ///     Sets the contents of a cell to a given value.
+        ///     If the row or column is out of bounds, then the canvas is not affected.
+        ///     Apart from the affected cell, all other cells in the canvas are unchanged.
         /// </summary>
         /// <param name="row">
-        /// An integer which if within bounds will be the row of the cell affected.
+        ///     An integer which if within bounds will be the row of the cell affected.
         /// </param>
         /// <param name="col">
-        /// An integer which if within bounds will be the column of the cell affected.
+        ///     An integer which if within bounds will be the column of the cell affected.
         /// </param>
         /// <param name="c">
-        /// The symbol to render in the designated call.
+        ///     The symbol to render in the designated call.
         /// </param>
         public void Draw(int row, int col, char c)
         {
@@ -134,8 +134,8 @@ namespace Drawing_proto
         }
 
         /// <summary>
-        /// Adds a single line of text to the canvas, starting at the stipulated location.
-        /// Any characters which fall within the bounds of the display are rendered.
+        ///     Adds a single line of text to the canvas, starting at the stipulated location.
+        ///     Any characters which fall within the bounds of the display are rendered.
         /// </summary>
         /// <param name="row">The row in which the first character will be displayed.</param>
         /// <param name="col">The column in which the first character will be displayed.</param>
@@ -147,7 +147,7 @@ namespace Drawing_proto
         }
 
         /// <summary>
-        /// Utility method to interchange the values of two integer variables.
+        ///     Utility method to interchange the values of two integer variables.
         /// </summary>
         /// <param name="a">One value.</param>
         /// <param name="b">The other value.</param>
@@ -159,8 +159,8 @@ namespace Drawing_proto
         }
 
         /// <summary>
-        /// Adds a line to the canvas. Any points that fall outside the bounds
-        /// are ignored.
+        ///     Adds a line to the canvas. Any points that fall outside the bounds
+        ///     are ignored.
         /// </summary>
         /// <param name="y0">The row in with the line starts.</param>
         /// <param name="x0">The column in which the line starts.</param>

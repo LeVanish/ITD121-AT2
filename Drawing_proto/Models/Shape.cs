@@ -10,22 +10,22 @@ namespace Drawing_proto
     {
         Canvas Canvas = new Canvas();
         /// <summary>
-        /// Gets the position of the "top-left" corner of the object.
+        ///     Gets the position of the "top-left" corner of the object.
         /// </summary>
         public ICoordinates Position { get; }
 
         /// <summary>
-        /// Gets the width of the object.
+        ///     Gets the width of the object.
         /// </summary>
         public virtual int Width { get; }
 
         /// <summary>
-        /// Gets the height of the object.
+        ///     Gets the height of the object.
         /// </summary>
         public virtual int Height { get; }
 
         /// <summary>
-        /// Initialise a 
+        ///     Initialise a shape
         /// </summary>
         /// <param name="position"></param>
         /// <param name="width"></param>
@@ -38,10 +38,10 @@ namespace Drawing_proto
         }
 
         /// <summary>
-        /// Override Draw to render a shape.
+        ///     Override Draw to render a shape.
         /// </summary>
         /// <param name="canvas">
-        /// The non-null canvas to which the shape will be added.
+        ///     The non-null canvas to which the shape will be added.
         /// </param>
         public abstract void Draw(Canvas canvas);
 

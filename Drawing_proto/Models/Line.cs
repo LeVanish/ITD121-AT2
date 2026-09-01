@@ -9,13 +9,13 @@ namespace Drawing_proto
     public class Line : Shape
     {
         /// <summary>
-        /// Get the symbol used to render the line.
+        ///     Get the symbol used to render the line.
         /// </summary>
         public char Symbol { get; }
 
         /// <summary>
-        /// Get the coordinates of the start of the line.
-        /// This is an alias for the inherited Position.
+        ///     Get the coordinates of the start of the line.
+        ///     This is an alias for the inherited Position.
         /// </summary>
         public ICoordinates Start
         {
@@ -23,12 +23,12 @@ namespace Drawing_proto
         }
 
         /// <summary>
-        /// Get the coordinates of the end of the line.
+        ///     Get the coordinates of the end of the line.
         /// </summary>
         public ICoordinates End { get; }
 
         /// <summary>
-        /// Initialise the Line.
+        ///     Initialise the Line.
         /// </summary>
         /// <param name="start">The non-null start of the line.</param>
         /// <param name="end">The non-null end of the line.</param>
@@ -41,8 +41,8 @@ namespace Drawing_proto
         }
 
         /// <summary>
-        /// Gets the "height" of the line.
-        /// This may vary as both position and end are mutable.
+        ///     Gets the "height" of the line.
+        ///     This may vary as both position and end are mutable.
         /// </summary>
         public override int Height
         {
@@ -53,8 +53,8 @@ namespace Drawing_proto
         }
 
         /// <summary>
-        /// Get the "width" of the line.
-        /// This may vary as both position and end are mutable.
+        ///     Get the "width" of the line.
+        ///     This may vary as both position and end are mutable.
         /// </summary>
         public override int Width
         {
@@ -67,10 +67,10 @@ namespace Drawing_proto
         }
 
         /// <summary>
-        /// Renders the line into the Canvas.
+        ///     Renders the line into the Canvas.
         /// </summary>
         /// <param name="canvas">
-        /// The non-null canvas to which the shape will be added.
+        ///     The non-null canvas to which the shape will be added.
         /// </param>
         public override void Draw(Canvas canvas)
         {

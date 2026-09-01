@@ -9,18 +9,18 @@ namespace Drawing_proto
     public class Text : Shape
     {
         /// <summary>
-        /// Gets the text displayed when this object is rendered.
+        ///     Gets the text displayed when this object is rendered.
         /// </summary>
         public string Sentence { get; }
 
         /// <summary>
-        /// Initialise the Label.
+        ///     Initialise the Label.
         /// </summary>
         /// <param name="start">
-        /// The position at which the beginning of the string is drawn.
+        ///     The position at which the beginning of the string is drawn.
         /// </param>
         /// <param name="text">
-        /// The text to display.
+        ///     The text to display.
         /// </param>
         public Text(Coordinates start, string text)
             : base(start, text.Length, 1)
@@ -34,10 +34,10 @@ namespace Drawing_proto
         }
 
         /// <summary>
-        /// Adds the text to the canvas.
+        ///     Adds the text to the canvas.
         /// </summary>
         /// <param name="canvas">
-        /// The non-null canvas object that will display the text.
+        ///     The non-null canvas object that will display the text.
         /// </param>
         public override void Draw(Canvas canvas)
         {
