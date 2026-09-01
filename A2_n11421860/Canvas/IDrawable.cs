@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 
 
-namespace A2_n11421860
+namespace Drawing_proto
 {
     /// <summary>
     /// The contract satisfied by objects which can be drawn on a canvas.

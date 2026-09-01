@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 
 
-namespace A2_n11421860
+namespace Drawing_proto
 {
     class LineMenuItem : MenuItem
     {

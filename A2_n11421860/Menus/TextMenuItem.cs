@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace A2_n11421860
+namespace Drawing_proto
 {
     class TextMenuItem : MenuItem
     {
