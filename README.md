@@ -60,6 +60,40 @@ Drawing_proto/
     └── TextMenuItem.cs
 ```
 
+### Models
+
+Contains the objects that make up the drawing.
+
+-   `Shape` provides the common abstraction for drawable shapes.
+-   `Point` represents a single character at a coordinate.
+-   `Line` represents a line between two coordinates.
+-   `Text` represents a sequence of characters starting at a specified
+    coordinate.
+
+### Canvas
+
+Contains the character-based drawing surface and the `IDrawable`
+interface.
+
+`Canvas` manages the underlying character grid and provides drawing
+operations for shapes.
+
+### Coordinates
+
+Contains the coordinate abstraction used to represent positions on the
+canvas.
+
+-   `ICoordinates` defines the coordinate interface.
+-   `Coordinates` provides the concrete implementation.
+
+### Menus
+
+Contains the application's menu and command classes.
+
+`MenuItem` provides the base functionality for selectable menu commands.
+Individual menu item classes implement interaction with the drawing such as creating,
+deleting, listing, and previewing drawing elements.
+
 ## Inheritance and Interface Overview
 
 ### Shape hierarchy
