@@ -3,12 +3,12 @@
 ## Overview
 
 This project is a C# console application that implements a simple
-structured drawing system following provided user stories. Users can create and manage drawings made up
+structured drawing system. Users can create and manage drawings made up
 of different shape types, including points, lines, and text, and preview
 the drawing on a character-based console canvas.
 
 The application was developed as part of an ITD121 programming
-assignment to demonstrate object-oriented programming, inheritance, interfaces, 
+assignment following user stories to demonstrate object-oriented programming, inheritance, interfaces, 
 polymorphism, abstraction, encapsulation.
 
 ## Technologies
