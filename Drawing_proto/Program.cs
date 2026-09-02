@@ -1,17 +1,24 @@
-﻿
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 
 
 namespace Drawing_proto;
 
+/// <summary>
+/// Entry point for the Drawing Editor prototype application.
+/// </summary>
 public class Program
 {
+    /// <summary>
+    /// Creates the drawing, canvas, and main menu.
+    /// </summary>
     private static void Main(string[] args)
     {
         Console.WriteLine("Welcome to the Simple Drawing Editor!");
 
+        // Keep the shape collection and canvas shared between menu commands so every
+        // operation works with the current drawing.
         List<Shape> shapes = new List<Shape>();
         Canvas canvas = new Canvas();
         Menu mainMenu = new("", "Main menu");
@@ -22,6 +29,7 @@ public class Program
         mainMenu.Add(new MenuItem("Save as", "Save drawing as ..."));
         mainMenu.Add(new MenuItem("Close", "Exit from system"));
 
+        // Start the main menu. It remains active until the user chooses "Close".
         mainMenu.Action();
 
         Console.WriteLine();

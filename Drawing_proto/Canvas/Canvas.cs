@@ -6,6 +6,9 @@ using System.Text;
 
 namespace Drawing_proto
 {
+    /// <summary>
+    /// The character-based drawing surface used by the application.
+    /// </summary>
     public class Canvas
     {
         private int width;
@@ -13,13 +16,10 @@ namespace Drawing_proto
         private char[,] cells;
 
         /// <summary>
-        ///     Get the width of the canvas.
+        /// Get the width of the canvas.
         /// </summary>
-        /// <value>
-        ///     The (strictly positive) width of the canvas.
-        /// </value>
         /// <exception cref="ArgumentException">
-        ///     ArgumentException is thrown if vlaue is not greater than zero.
+        /// Thrown if atemted to set value to zero or lower.
         /// </exception>
         public int Width
         {
@@ -39,13 +39,10 @@ namespace Drawing_proto
         }
 
         /// <summary>
-        ///     Get the height of the canvas.
+        /// Get the height of the canvas.
         /// </summary>
-        /// <value>
-        ///     The (strictly positive) width of the canvas.
-        /// </value>
         /// <exception cref="ArgumentException">
-        ///     ArgumentException is thrown if vlaue is not greater than zero.
+        /// ArgumentException is thrown if vlaue is not greater than zero.
         /// </exception>
         public int Height
         {
@@ -53,17 +50,22 @@ namespace Drawing_proto
             {
                 return height;
             }
-            private set
+            set
             {
+                if (value <= 0)
+                {
+                    throw new ArgumentException("Height must be greater than zero.");
+                }
+
                 height = value;
             }
         }
 
         /// <summary>
-        ///     Initialise the canvas.
+        /// Creates an empty canvas with the specified dimensions.
         /// </summary>
-        /// <param name="width">The (strictly positive) width of the canvas.</param>
-        /// <param name="height">The (strictly positive) height of the canvas.</param>
+        /// <param name="width">The width of the canvas.</param>
+        /// <param name="height">The height of the canvas.</param>
         public Canvas(int width = 80, int height = 28)
         {
             Width = width;
@@ -73,7 +75,7 @@ namespace Drawing_proto
         }
 
         /// <summary>
-        ///     Erase contents of canvas, replacing with spaces.
+        /// Clear the canvas by replacing every cell with a space.
         /// </summary>
         public void Clear()
         {
@@ -87,21 +89,10 @@ namespace Drawing_proto
         }
 
         /// <summary>
-        ///     Render the canvas to the standard output stream.
+        /// Render the canvas in the console.
         /// </summary>
         public void Show()
         {
-           //try
-           //{
-           //    Console.CursorLeft = 0;
-           //    Console.CursorTop = 0;
-           //}
-           //catch
-           //{
-           //    // Do nothing, we expect this if the standard output stream is
-           //    // not a terminal.
-           //}
-
             for (int row = 0; row < Height; row++)
             {
                 for (int col = 0; col < Width; col++)
@@ -113,19 +104,12 @@ namespace Drawing_proto
         }
 
         /// <summary>
-        ///     Sets the contents of a cell to a given value.
-        ///     If the row or column is out of bounds, then the canvas is not affected.
-        ///     Apart from the affected cell, all other cells in the canvas are unchanged.
+        /// Sets the contents of a cell to a given value.
+        /// Coordinates out of bounds are ignored and canvas remains unchanged.
         /// </summary>
-        /// <param name="row">
-        ///     An integer which if within bounds will be the row of the cell affected.
-        /// </param>
-        /// <param name="col">
-        ///     An integer which if within bounds will be the column of the cell affected.
-        /// </param>
-        /// <param name="c">
-        ///     The symbol to render in the designated call.
-        /// </param>
+        /// <param name="row">Row of the cell to modify.</param>
+        /// <param name="col">Column of the cell to modify.</param>
+        /// <param name="c">The character to render in the designated call.</param>
         public void Draw(int row, int col, char c)
         {
             if (row < 0 || row >= Height || col < 0 || col >= Width) return;
@@ -134,12 +118,12 @@ namespace Drawing_proto
         }
 
         /// <summary>
-        ///     Adds a single line of text to the canvas, starting at the stipulated location.
-        ///     Any characters which fall within the bounds of the display are rendered.
+        /// Draws a line of text starting at the specified column and row.
+        /// Characters falling out of bounds are ignored.
         /// </summary>
-        /// <param name="row">The row in which the first character will be displayed.</param>
-        /// <param name="col">The column in which the first character will be displayed.</param>
-        /// <param name="s">The non-null text to be added.</param>
+        /// <param name="col">The column at which the text starts.</param>
+        /// <param name="row">The row at which the text starts.</param>
+        /// <param name="s">The text to draw.</param>
         public void Draw(int col, int row, string s)
         {
             for (int i = 0; i < s.Length; i++)
@@ -147,10 +131,10 @@ namespace Drawing_proto
         }
 
         /// <summary>
-        ///     Utility method to interchange the values of two integer variables.
+        /// Swaps the values of two integer variables.
         /// </summary>
-        /// <param name="a">One value.</param>
-        /// <param name="b">The other value.</param>
+        /// <param name="a">First value.</param>
+        /// <param name="b">Second value.</param>
         public static void Swap(ref int a, ref int b)
         {
             int t = a;
@@ -159,14 +143,14 @@ namespace Drawing_proto
         }
 
         /// <summary>
-        ///     Adds a line to the canvas. Any points that fall outside the bounds
-        ///     are ignored.
+        /// Draws a line between two points using the specified character.
+        /// Points out of bounds are ignored.
         /// </summary>
-        /// <param name="y0">The row in with the line starts.</param>
-        /// <param name="x0">The column in which the line starts.</param>
-        /// <param name="y1">The row in which the line ends.</param>
-        /// <param name="x1">The column in which the line ends.</param>
-        /// <param name="symbol">The symbol used to render the line.</param>
+        /// <param name="x0">The line start column.</param>
+        /// <param name="y0">The line start row.</param>
+        /// <param name="x1">The line end column.</param>
+        /// <param name="y1">The line end row.</param>
+        /// <param name="symbol">The character used to draw the line.</param>
         public void Draw(int x0, int y0, int x1, int y1, char symbol)
         {
             double dx = (x1 - x0);
@@ -174,6 +158,8 @@ namespace Drawing_proto
             double adx = Math.Abs(x1 - x0);
             double ady = Math.Abs(y1 - y0);
 
+            // Iterate along the axis with the larger change to determine the
+            // corresponding coordinate on the other axis.
             if (adx >= ady)
             {
                 if (x0 > x1)

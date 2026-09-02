@@ -6,22 +6,21 @@ using System.Text;
 
 namespace Drawing_proto
 {
+    /// <summary>
+    /// Represents a sequence of characters positioned on the canvas.
+    /// </summary>
     public class Text : Shape
     {
         /// <summary>
-        ///     Gets the text displayed when this object is rendered.
+        /// Gets the text displayed when this shape.
         /// </summary>
         public string Sentence { get; }
 
         /// <summary>
-        ///     Initialise the Label.
+        /// Creates a text shape starting at the specified position.
         /// </summary>
-        /// <param name="start">
-        ///     The position at which the beginning of the string is drawn.
-        /// </param>
-        /// <param name="text">
-        ///     The text to display.
-        /// </param>
+        /// <param name="start">The starting position of the text.</param>
+        /// <param name="text">The text to display.</param>
         public Text(Coordinates start, string text)
             : base(start, text.Length, 1)
         {
@@ -34,11 +33,9 @@ namespace Drawing_proto
         }
 
         /// <summary>
-        ///     Adds the text to the canvas.
+        /// Renders the text onto the canvas.
         /// </summary>
-        /// <param name="canvas">
-        ///     The non-null canvas object that will display the text.
-        /// </param>
+        /// <param name="canvas">The canvas to which the text is rendered.</param>
         public override void Draw(Canvas canvas)
         {
             canvas.Draw(Position.X, Position.Y, Sentence);

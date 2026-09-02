@@ -7,15 +7,14 @@ using System.Text;
 namespace Drawing_proto
 {
     /// <summary>
-    ///     The contract satisfied by objects which can be drawn on a canvas.
+    /// Defines an object that can be rendered onto a canvas.
     /// </summary>
     public interface IDrawable
     {
-
         /// <summary>
-        ///     Render an object in the specified canvas.
+        /// Renders the object onto the specified canvas.
         /// </summary>
-        /// <param name="canvas">The non-null canvas which will display the object.</param>
+        /// <param name="canvas">The canvas on which the object is rendered.</param>
         void Draw(Canvas canvas);
     }
 }

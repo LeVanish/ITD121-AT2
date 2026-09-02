@@ -7,25 +7,25 @@ using System.Text;
 namespace Drawing_proto
 {
     /// <summary>
-    ///     Class to represent a point int the canvas.
+    /// Class to represent a point on the canvas.
     /// </summary>
     public class Coordinates : ICoordinates
     {
         /// <summary>
-        ///     The horizontal position of the point.
+        /// Gets or sets the horizontal coordinate.
         /// </summary>
         public int X { get; set; }
 
         /// <summary>
-        ///     The vertical position of the point.
+        /// Gets or sets the vertical coordinate.
         /// </summary>
         public int Y { get; set; }
 
         /// <summary>
-        ///     Set the initial location of the point.
+        /// Creates a coordinate with the specified horizontal and vertical values.
         /// </summary>
-        /// <param name="x">The initial horizontal location of the point.</param>
-        /// <param name="y">The initial vertical location of the point.</param>
+        /// <param name="x">The horizontal coordinate.</param>
+        /// <param name="y">The vertical coordinate.</param>
         public Coordinates(int x, int y)
         {
             X = x;
@@ -33,9 +33,9 @@ namespace Drawing_proto
         }
 
         /// <summary>
-        ///     Gets the coordinates as a string.
+        /// Returns the coordinates in the form <c>(X,Y)</c>.
         /// </summary>
-        /// <returns>Returns a string containing the coordinates.</returns>
+        /// <returns>A string representation of the coordinates.</returns>
         public override string ToString()
         {
             return $"({X},{Y})";

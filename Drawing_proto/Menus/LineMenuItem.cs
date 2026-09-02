@@ -6,16 +6,33 @@ using System.Text;
 
 namespace Drawing_proto
 {
+    /// <summary>
+    /// Handles adding a Line shape to the current drawing.
+    /// </summary>
     class LineMenuItem : MenuItem
     {
+        /// <summary>
+        /// Creates a "Line" menu item associated with the current drawing.
+        /// </summary>
         public LineMenuItem(string key, string title, List<Shape> shapes, Canvas canvas) : base(key, title)
         {
             this.Shapes = shapes;
             this.Canvas = canvas;
         }
-        public List<Shape> Shapes { get; }
+
+        /// <summary>
+        /// Gets the canvas used by the current drawing.
+        /// </summary>
         public Canvas Canvas { get; }
 
+        /// <summary>
+        /// Gets the collection of the current drawing's shapes.
+        /// </summary>
+        public List<Shape> Shapes { get; }
+
+        /// <summary>
+        /// Prompts the user for the line's endpoints and character, then adds it to the drawing.
+        /// </summary>
         public override void Action()
         {
             Console.WriteLine();
@@ -89,6 +106,7 @@ namespace Drawing_proto
                 Console.WriteLine("Please supply a character between '!' and '~'");
             }
 
+            // Create the Line shape from the supplied endpoints.
             Line l = new Line(new Coordinates(x1, y1), new Coordinates(x2, y2), symbol);
 
             l.Draw(Canvas);

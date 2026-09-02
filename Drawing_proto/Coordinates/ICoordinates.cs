@@ -7,17 +7,17 @@ using System.Text;
 namespace Drawing_proto
 {
     /// <summary>
-    ///     Abstract representation of an (x,y) position.
+    /// An abstract representation of an (X,Y) position.
     /// </summary>
     public interface ICoordinates
     {
         /// <summary>
-        ///     Get the horizontal offset to the position.
+        /// Gets the horizontal coordinate.
         /// </summary>
         public int X { get; }
 
         /// <summary>
-        ///     Get the vertical offset of the position.
+        /// Gets the vertical coordinate.
         /// </summary>
         public int Y { get; }
     }

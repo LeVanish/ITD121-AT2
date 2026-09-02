@@ -5,16 +5,33 @@ using System.Text;
 
 namespace Drawing_proto
 {
+    /// <summary>
+    /// Handles removing a shape from the current drawing.
+    /// </summary>
     class DeleteMenuItem : MenuItem
     {
+        /// <summary>
+        /// Creates a "Delete" menu item associated with the current drawing.
+        /// </summary>
         public DeleteMenuItem(string key, string title, List<Shape> shapes, Canvas canvas) : base(key, title)
         {
             this.Shapes = shapes;
             this.Canvas = canvas;
         }
+
+        /// <summary>
+        /// Gets the canvas used by the current drawing.
+        /// </summary>
         public Canvas Canvas { get; }
+
+        /// <summary>
+        /// Gets the collection of the current drawing's shapes.
+        /// </summary>
         public List<Shape> Shapes { get; }
 
+        /// <summary>
+        /// Prompts the user for a shape position, removes the selected shape, and re-renders the canvas.
+        /// </summary>
         public override void Action()
         {
             Console.WriteLine();
@@ -44,6 +61,8 @@ namespace Drawing_proto
                         if (s == null || s == "")
                         {
                             Shapes.RemoveAt(Shapes.Count - 1);
+                            // Re-render the canvas because the removed shape may have occupied cells
+                            // that are also affected by other shapes.
                             Canvas.Clear();
                             for (int i = 0; i < Shapes.Count; i++)
                             {
@@ -57,6 +76,7 @@ namespace Drawing_proto
                             if (pos <= Shapes.Count)
                             {
                                 Shapes.RemoveAt(pos);
+                                // Re-render the canvas so it represents the remaining shapes.
                                 Canvas.Clear();
                                 for (int i = 0; i < Shapes.Count; i++)
                                 {

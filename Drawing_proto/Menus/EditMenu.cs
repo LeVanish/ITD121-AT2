@@ -6,9 +6,16 @@ using System.Text;
 
 namespace Drawing_proto
 {
+    /// <summary>
+    /// Provides menu options for adding, viewing, listing, and deleting drawing elements.
+    /// </summary>
     class EditMenu : Menu
     {
         List<MenuItem> items = new List<MenuItem>();
+
+        /// <summary>
+        /// Creates the editing menu and initialises available commands.
+        /// </summary>
         public EditMenu(string key, string title, List<Shape> shapes, Canvas canvas) : base(key, title)
         {
             items.Add(new PointMenuItem("Point", "Add point to drawing", shapes, canvas));
@@ -20,6 +27,9 @@ namespace Drawing_proto
             items.Add(new PointMenuItem("Return", "Return to previous menu", shapes, canvas));
         }
 
+        /// <summary>
+        /// Displays the editing menu and processes commands until the user returns to the previous menu.
+        /// </summary>
         public override void Action()
         {
             while (true)

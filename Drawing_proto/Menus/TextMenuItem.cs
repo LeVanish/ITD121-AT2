@@ -5,15 +5,33 @@ using System.Text;
 
 namespace Drawing_proto
 {
+    /// <summary>
+    /// Handles adding Text shape to the current drawing.
+    /// </summary>
     class TextMenuItem : MenuItem
     {
+        /// <summary>
+        /// Creates a "Text" menu item associated with the current drawing.
+        /// </summary>
         public TextMenuItem(string key, string title, List<Shape> shapes, Canvas canvas) : base(key, title)
         {
             this.Shapes = shapes;
             this.Canvas = canvas;
         }
-        public List<Shape> Shapes { get; }
+
+        /// <summary>
+        /// Gets the canvas used by the current drawing.
+        /// </summary>
         public Canvas Canvas { get; }
+
+        /// <summary>
+        /// Gets the collection of the current drawing's shapes.
+        /// </summary>
+        public List<Shape> Shapes { get; }
+
+        /// <summary>
+        /// Prompts the user for a starting position and text, then adds it to the drawing.
+        /// </summary>
         public override void Action()
         {
             Console.WriteLine();
@@ -59,6 +77,7 @@ namespace Drawing_proto
                 Console.Write("Please supply text");
             }
 
+            // Create the Text shape using the supplied position and text.
             Text t = new Text(new Coordinates(x, y), text);
 
             t.Draw(Canvas);

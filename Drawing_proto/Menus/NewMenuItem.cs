@@ -5,16 +5,33 @@ using System.Text;
 
 namespace Drawing_proto
 {
+    /// <summary>
+    /// Handles creating a new drawing and discarding the current drawing when necessary.
+    /// </summary>
     class NewMenuItem : MenuItem
     {
+        /// <summary>
+        /// Creates a "New" menu item associated with the current canvas and shape collection.
+        /// </summary>
         public NewMenuItem(string key, string title, Canvas canvas, List<Shape> shapes) : base(key, title)
         {
             this.Canvas = canvas;
             this.Shapes = shapes;
         }
+
+        /// <summary>
+        /// Gets the canvas used by the current drawing.
+        /// </summary>
         public Canvas Canvas { get; }
+
+        /// <summary>
+        /// Gets the collection of the current drawing's shapes.
+        /// </summary>
         public List<Shape> Shapes { get; }
 
+        /// <summary>
+        /// Creates a new empty drawing, asking for confirmation before discarding existing shapes.
+        /// </summary>
         public override void Action()
         {
 

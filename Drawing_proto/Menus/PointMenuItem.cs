@@ -6,17 +6,33 @@ using System.Text;
 
 namespace Drawing_proto
 {
+    /// <summary>
+    /// Handles adding a Point shape to the current drawing.
+    /// </summary>
     class PointMenuItem : MenuItem
     {
-
+        /// <summary>
+        /// Creates a "Point" menu item associated with the current drawing.
+        /// </summary>
         public PointMenuItem(string key, string title, List<Shape> shapes, Canvas canvas) : base(key, title)
         {
             this.Shapes = shapes;
             this.Canvas = canvas;
         }
-        public List<Shape> Shapes { get; }
+
+        /// <summary>
+        /// Gets the canvas used by the current drawing.
+        /// </summary>
         public Canvas Canvas { get; }
 
+        /// <summary>
+        /// Gets the collection of the current drawing's shapes.
+        /// </summary>
+        public List<Shape> Shapes { get; }
+
+        /// <summary>
+        /// Prompts the user for point coordinates and character, then adds the point to the drawing.
+        /// </summary>
         public override void Action()
         {
             Console.WriteLine();
@@ -47,10 +63,11 @@ namespace Drawing_proto
                 }
                 Console.WriteLine("Please supply a whole number.");
             }
+
+            // Create the coordinate object so it can be passed to the Point constructor.
             Coordinates xy = new Coordinates(x, y);
             while (true)
             {
-
 
                 Console.Write("Symbol: ");
                 var s = Console.ReadLine();
